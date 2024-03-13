@@ -31,6 +31,8 @@ enum eLMS_DEV {
 	LMS_DEV_LIMESDR_PCIE,
 	LMS_DEV_QSPARK, //2x LMS
 	LMS_DEV_ULIMESDR,
+	LMS_DEV_USTREAM, //with expansion booards (uMyriad)
+	
 	};
 
 enum eEXP_BOARD {
