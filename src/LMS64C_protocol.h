@@ -2,9 +2,9 @@
 -- ----------------------------------------------------------------------------	
 -- FILE:	LMS64C_protocol.h
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
--- DATE:	2015.04.13
+-- DATE:	2015.06.01
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r18
+-- REVISION: v0r19
 -- ----------------------------------------------------------------------------	
 
 */
@@ -25,6 +25,7 @@ enum eLMS_DEV {
 	LMS_DEV_NOVENA, //Freescale iMX6 CPU
 	LMS_DEV_DATASPARK, //Altera Cyclone V, 2x 256 MB RAM, 2x FMC (HPC, LPC), USB3
 	LMS_DEV_RFSPARK, //LMS7002
+	LMS_DEV_LMS6002USB, //LM6002-USB (USB stick: FX3, FPGA, LMS6002, RaspberryPi con)
 	};
 
 enum eEXP_BOARD {
