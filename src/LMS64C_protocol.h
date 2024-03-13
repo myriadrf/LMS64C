@@ -48,6 +48,7 @@ enum eEXP_BOARD {
 
 //commands
 #define CMD_GET_INFO		0x00 //Returns some info about board and firmware
+#define CMD_WR_INFO			0x01 
 
 //i2c peripherals control
 #define CMD_SI5356_WR	 	0x11
