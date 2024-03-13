@@ -2,9 +2,9 @@
 -- ----------------------------------------------------------------------------	
 -- FILE:	LMS64C_protocol.h
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
--- DATE:	2014.12.18
+-- DATE:	2015.01.07
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r15
+-- REVISION: v0r16
 -- ----------------------------------------------------------------------------	
 
 */
@@ -77,10 +77,13 @@ enum eEXP_BOARD {
 #define CMD_ALTERA_FPGA_GW_RD		0x54
 
 //spi peripherals control
-#define CMD_BRDSPI16_WR		0x55 //16 bit spi for stream, dataspark control
-#define CMD_BRDSPI16_RD		0x56 //16 bit spi for stream, dataspark control
-#define CMD_BRDSPI8_WR		0x57 //8 bit spi for stream, dataspark control
-#define CMD_BRDSPI8_RD		0x58 //8 bit spi for stream, dataspark control
+#define CMD_BRDSPI16_WR		0x55 //16 + 16 bit spi for stream, dataspark control
+#define CMD_BRDSPI16_RD		0x56 //16 + 16 bit spi for stream, dataspark control
+#define CMD_BRDSPI8_WR		0x57 //8 + 8 bit spi for stream, dataspark control
+#define CMD_BRDSPI8_RD		0x58 //8 + 8 bit spi for stream, dataspark control
+
+#define CMD_MINERSPI_WR		0x5B //16 + 32 bit spi for Miner control
+#define CMD_MINERSPI_RD		0x5C //16 + 32 bit spi for Miner control
 
 #define CMD_BRDCONF_WR		0x5D //write config data to board
 #define CMD_BRDCONF_RD		0x5E //read config data from board
