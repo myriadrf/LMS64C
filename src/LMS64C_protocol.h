@@ -41,8 +41,8 @@ enum eLMS_DEV {
 	LMS_DEV_LIMENET_MICRO			= 22, //Raspberry Pi CM3(L), Ethernet, MAX10, LMS7002, 
 	LMS_DEV_LIMESDR_CORE_SDR		= 23, //LMS7002, Intel Cyclone 4, RAM, GNSS
 	LMS_DEV_LIMESDR_CORE_HE			= 24, //PA board
-	LMS_DEV_PCIE_5GRADIO			= 25, //PCIe_5GRadio PCIe x4 gen 2, 2x LMS7002, Xilinx, PA
-	LMS_DEV_FEM_PSU_CON				= 26, //FEM PAs interconection/control/power board with ATmega32U4
+	LMS_DEV_LIMESDRMINI_V2 			= 25, //FTDI + ECP5 + LMS
+	LMS_DEV_LIMESDR_X3 				= 26, //3xLMS, newer version of PCIe_5GRadio
 	};
 
 enum eEXP_BOARD {
