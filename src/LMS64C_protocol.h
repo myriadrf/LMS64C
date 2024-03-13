@@ -2,9 +2,9 @@
 -- ----------------------------------------------------------------------------	
 -- FILE:	LMS64C_protocol.h
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
--- DATE:	2014.11.12
+-- DATE:	2014.11.25
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r11
+-- REVISION: v0r12
 -- ----------------------------------------------------------------------------	
 
 */
@@ -22,7 +22,8 @@ enum eLMS_DEV {
 	LMS_DEV_SOCKETBOARD, 
 	LMS_DEV_EVB7V2, 
 	LMS_DEV_STREAM, 
-	LMS_DEV_NOVENA
+	LMS_DEV_NOVENA,
+	LMS_DEV_DATASPARK
 	};
 
 enum eEXP_BOARD {
@@ -41,10 +42,13 @@ enum eEXP_BOARD {
 //commands
 #define CMD_GET_INFO		0x00 //Returns some info about board and firmware
 
+//i2c peripherals control
 #define CMD_SI5356_WR	 	0x11
 #define CMD_SI5356_RD		0x12
 #define CMD_SI5351_WR	 	0x13 //Writes data to SI5351 (clock generator) via I2C
 #define CMD_SI5351_RD		0x14 //Reads data from SI5351 (clock generator) via I2C
+#define CMD_TFP410_WR		0x15 //PanelBus DVI (HDMI) Transmitter control
+#define CMD_TFP410_RD		0x16 //PanelBus DVI (HDMI) Transmitter control
 
 #define CMD_LMS_RST			0x20 //CMD_LMS_RST
 #define CMD_LMS7002_WR		0x21
@@ -71,14 +75,27 @@ enum eEXP_BOARD {
 #define CMD_ALTERA_FPGA_GW_WR		0x53
 #define CMD_ALTERA_FPGA_GW_RD		0x54
 
+//spi peripherals control
+#define LMS_BRDSPI_WR		0x55//16 bit spi for stream, dataspark control
+#define LMS_BRDSPI_RD		0x56//16 bit spi for stream, dataspark control
+
+
 //0x6x free?
 //0x7x free?
+/*
+#define 8bit spi wr, rd
+#define 16bit spi wr, rd
+#define 8bit i2c
+#*/
 
 #define CMD_MYRIAD_RST		0x80
 #define CMD_MYRIAD_WR		0x81
 #define CMD_MYRIAD_RD		0x82
-#define CMD_MYRIAD_FW_WR	0x8C //Writes data to MyRiad board via SPI
-#define CMD_MYRIAD_FW_RD	0x8D //Reads data from MyRiad board via SPI
+#define CMD_MYRIAD_FW_WR	0x8C //Writes FW to MyRiad board via SPI
+#define CMD_MYRIAD_FW_RD	0x8D //Reads FW from MyRiad board via SPI
+
+
+
 
 //status
 #define STATUS_COMPLETED_CMD	1
