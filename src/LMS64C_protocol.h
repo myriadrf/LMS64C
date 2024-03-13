@@ -2,9 +2,9 @@
 -- ----------------------------------------------------------------------------	
 -- FILE:	LMS64C_protocol.h
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
--- DATE:	2014.11.25
+-- DATE:	2014.12.18
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r12
+-- REVISION: v0r15
 -- ----------------------------------------------------------------------------	
 
 */
@@ -34,6 +34,7 @@ enum eEXP_BOARD {
 	EXP_BOARD_MYRIAD2, //myriad2 (longer board, with PA, MPI)
 	EXP_BOARD_MYRIAD_NOVENA, //Novena myriad
 	EXP_BOARD_HPM1000, //myriad with MCU, PA, MPI
+	EXP_BOARD_MYRIAD7, //Myraid with LMS7002
 	};
 
 #define LMS_PROTOCOL_VER		1
@@ -51,10 +52,10 @@ enum eEXP_BOARD {
 #define CMD_TFP410_RD		0x16 //PanelBus DVI (HDMI) Transmitter control
 
 #define CMD_LMS_RST			0x20 //CMD_LMS_RST
-#define CMD_LMS7002_WR		0x21
-#define CMD_LMS7002_RD		0x22
-#define CMD_LMS6002_WR		0x23 //Writes data to LMS6002 chip via SPI
-#define CMD_LMS6002_RD		0x24 //Writes data to LMS6002 chip via SPI
+#define CMD_LMS7002_WR		0x21 //Writes data to LMS7002 chip via SPI (16 bits word)
+#define CMD_LMS7002_RD		0x22 //Reads data from LMS7002 chip via SPI (16 bits word)
+#define CMD_LMS6002_WR		0x23 //Writes data to LMS6002 chip via SPI (8 bits word)
+#define CMD_LMS6002_RD		0x24 //Reads data from LMS6002 chip via SPI (8 bits word)
 
 #define CMD_LMS_LNA			0x2A
 #define CMD_LMS_PA			0x2B
@@ -76,9 +77,13 @@ enum eEXP_BOARD {
 #define CMD_ALTERA_FPGA_GW_RD		0x54
 
 //spi peripherals control
-#define LMS_BRDSPI_WR		0x55//16 bit spi for stream, dataspark control
-#define LMS_BRDSPI_RD		0x56//16 bit spi for stream, dataspark control
+#define CMD_BRDSPI16_WR		0x55 //16 bit spi for stream, dataspark control
+#define CMD_BRDSPI16_RD		0x56 //16 bit spi for stream, dataspark control
+#define CMD_BRDSPI8_WR		0x57 //8 bit spi for stream, dataspark control
+#define CMD_BRDSPI8_RD		0x58 //8 bit spi for stream, dataspark control
 
+#define CMD_BRDCONF_WR		0x5D //write config data to board
+#define CMD_BRDCONF_RD		0x5E //read config data from board
 
 //0x6x free?
 //0x7x free?
@@ -98,12 +103,13 @@ enum eEXP_BOARD {
 
 
 //status
-#define STATUS_COMPLETED_CMD	1
-#define STATUS_UNKNOWN_CMD		2
-#define STATUS_BUSY_CMD			3
-#define STATUS_BLOCKS_ERROR_CMD	4
-#define STATUS_ERROR_CMD		5
-#define STATUS_WRONG_ORDER_CMD	6
+#define STATUS_COMPLETED_CMD		1 //Command successfully executed
+#define STATUS_UNKNOWN_CMD			2 //Unknown command
+#define STATUS_BUSY_CMD				3 //Command execution not finished
+#define STATUS_BLOCKS_ERROR_CMD		4 //Too many blocks
+#define STATUS_ERROR_CMD			5 //Error occurred during command execution
+#define STATUS_WRONG_ORDER_CMD		6 //Broken packets sequence
+#define STATUS_RESOURCE_DENIED_CMD	7 //Board resource denied
 
 //CMD_LMS_RST
 #define LMS_RST_DEACTIVATE	0
