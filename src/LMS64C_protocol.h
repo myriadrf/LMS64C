@@ -2,9 +2,9 @@
 -- ----------------------------------------------------------------------------	
 -- FILE:	LMS64C_protocol.h
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
--- DATE:	2016.11.24
+-- DATE:	2017.01.11
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r28
+-- REVISION: v0r29
 -- ----------------------------------------------------------------------------	
 
 */
@@ -34,6 +34,7 @@ enum eLMS_DEV {
 	LMS_DEV_USTREAM, //with expansion booards (uMyriad)
 	LMS_DEV_LIMESDR_SONY_PA, //stand alone board with Sony PAs, tuners
 	LMS_DEV_LIMESDR_USB_SP,
+	LMS_DEV_LMS7002M_ULTIMATE_EVB,
 	};
 
 enum eEXP_BOARD {
