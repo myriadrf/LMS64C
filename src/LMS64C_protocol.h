@@ -2,9 +2,9 @@
 -- ----------------------------------------------------------------------------	
 -- FILE:	LMS64C_protocol.h
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
--- DATE:	2016.03.22
+-- DATE:	2016.04.04
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r25
+-- REVISION: v0r26
 -- ----------------------------------------------------------------------------	
 
 */
@@ -27,8 +27,8 @@ enum eLMS_DEV {
 	LMS_DEV_RFSPARK, //LMS7002 EVB
 	LMS_DEV_LMS6002USB, //LM6002-USB (USB stick: FX3, FPGA, LMS6002, RaspberryPi con)
 	LMS_DEV_RFESPARK, //LMS7002 EVB
-	LMS_DEV_LIMESDR, //SoDeRa USB, 32bit FX3, 2xRAM, LMS7
-	LMS_DEV_SODERA_PCIE,
+	LMS_DEV_LIMESDR_USB, //SoDeRa USB, 32bit FX3, 2xRAM, LMS7
+	LMS_DEV_LIMESDR_PCIE,
 	LMS_DEV_QSPARK, //2x LMS
 	LMS_DEV_ULIMESDR,
 	};
@@ -110,8 +110,8 @@ enum eEXP_BOARD {
 #define CMD_EXP_BRD_RST		0x80
 #define CMD_EXP_BRDSPI8_WR	0x81
 #define CMD_EXP_BRDSPI8_RD	0x82
-#define CMD_EXP_BRD_FW_WR	0x8C //Writes FW to MyRiad board via SPI
-#define CMD_EXP_BRD_FW_RD	0x8D //Reads FW from MyRiad board via SPI
+#define CMD_MEMORY_WR		0x8C
+#define CMD_MEMORY_RD		0x8D
 
 //status
 #define STATUS_COMPLETED_CMD		1 //Command successfully executed
