@@ -2,9 +2,9 @@
 -- ----------------------------------------------------------------------------	
 -- FILE:	LMS64C_protocol.h
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
--- DATE:	2015.01.07
+-- DATE:	2015.03.03
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r16
+-- REVISION: v0r17
 -- ----------------------------------------------------------------------------	
 
 */
@@ -16,25 +16,27 @@ enum eLMS_DEV {
 	LMS_DEV_UNKNOWN, 
 	LMS_DEV_EVB6,
 	LMS_DEV_DIGIGREEN, 
-	LMS_DEV_DIGIRED, 
+	LMS_DEV_DIGIRED, //2x LMS6002, USB3
 	LMS_DEV_EVB7, 
-	LMS_DEV_ZIPPER, 
+	LMS_DEV_ZIPPER, //MyRiad bridge to FMC, HSMC bridge
 	LMS_DEV_SOCKETBOARD, 
 	LMS_DEV_EVB7V2, 
-	LMS_DEV_STREAM, 
-	LMS_DEV_NOVENA,
-	LMS_DEV_DATASPARK
+	LMS_DEV_STREAM, //Altera Cyclone IV, USB3, 2x 128 MB RAM, RFDIO, FMC
+	LMS_DEV_NOVENA, //Freescale iMX6 CPU
+	LMS_DEV_DATASPARK, //Altera Cyclone V, 2x 256 MB RAM, 2x FMC (HPC, LPC), USB3
+	LMS_DEV_RFSPARK, //LMS7002
 	};
 
 enum eEXP_BOARD {
 	EXP_BOARD_UNKNOWN, //undefined
 	EXP_BOARD_UNSUPPORTED, //exp board not supported
 	EXP_BOARD_NO, //device does not supoort any exp boards
-	EXP_BOARD_MYRIAD1, //myriad1
-	EXP_BOARD_MYRIAD2, //myriad2 (longer board, with PA, MPI)
+	EXP_BOARD_MYRIAD1, //myriad1 LMS6002
+	EXP_BOARD_MYRIAD2, //myriad2 LMS6002, longer board, with PA, MIPI
 	EXP_BOARD_MYRIAD_NOVENA, //Novena myriad
 	EXP_BOARD_HPM1000, //myriad with MCU, PA, MPI
-	EXP_BOARD_MYRIAD7, //Myraid with LMS7002
+	EXP_BOARD_MYRIAD7, //Myriad with LMS7002
+	EXP_BOARD_HPM7, //Myriad long with LMS7002, 2x PA
 	};
 
 #define LMS_PROTOCOL_VER		1
@@ -66,7 +68,7 @@ enum eEXP_BOARD {
 //ADF4002
 #define CMD_ADF4002_WR		0x31 //Writes data to ADF4002 (phase detector/frequency synthesizer) via SPI
 
-#define CMD_FX2				0x40 //FX2 Configuration, resets endpints (DigiGreen)
+#define CMD_FX2				0x40 //FX2 Configuration, resets endpoints (DigiGreen)
 
 #define CMD_PE636040_WR		0x41 //Writes data to PE636040 tuner
 #define CMD_PE636040_RD		0x42 //Reads data from PE636040 tuner
@@ -81,9 +83,6 @@ enum eEXP_BOARD {
 #define CMD_BRDSPI16_RD		0x56 //16 + 16 bit spi for stream, dataspark control
 #define CMD_BRDSPI8_WR		0x57 //8 + 8 bit spi for stream, dataspark control
 #define CMD_BRDSPI8_RD		0x58 //8 + 8 bit spi for stream, dataspark control
-
-#define CMD_MINERSPI_WR		0x5B //16 + 32 bit spi for Miner control
-#define CMD_MINERSPI_RD		0x5C //16 + 32 bit spi for Miner control
 
 #define CMD_BRDCONF_WR		0x5D //write config data to board
 #define CMD_BRDCONF_RD		0x5E //read config data from board
