@@ -4,7 +4,7 @@
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
 -- DATE:	2024.03.13
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r33
+-- REVISION: v0r34
 -- ----------------------------------------------------------------------------	
 
 */
@@ -43,6 +43,8 @@ enum eLMS_DEV {
 	LMS_DEV_LIMESDR_CORE_HE			= 24, //PA board
 	LMS_DEV_LIMESDRMINI_V2 			= 25, //FTDI + ECP5 + LMS
 	LMS_DEV_LIMESDR_X3 				= 26, //3xLMS, newer version of PCIe_5GRadio
+	LMS_DEV_LIMESDR_XTRX 			= 27, //mPCIe board
+    LMS_DEV_LIMESDR_MMX8 			= 28,
 	};
 
 enum eEXP_BOARD {
