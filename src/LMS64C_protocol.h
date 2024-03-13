@@ -2,9 +2,9 @@
 -- ----------------------------------------------------------------------------	
 -- FILE:	LMS64C_protocol.h
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
--- DATE:	2016.04.04
+-- DATE:	2016.11.24
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r26
+-- REVISION: v0r28
 -- ----------------------------------------------------------------------------	
 
 */
@@ -27,12 +27,13 @@ enum eLMS_DEV {
 	LMS_DEV_RFSPARK, //LMS7002 EVB
 	LMS_DEV_LMS6002USB, //LM6002-USB (USB stick: FX3, FPGA, LMS6002, RaspberryPi con)
 	LMS_DEV_RFESPARK, //LMS7002 EVB
-	LMS_DEV_LIMESDR_USB, //SoDeRa USB, 32bit FX3, 2xRAM, LMS7
+	LMS_DEV_LIMESDR_USB, //LimeSDR-USB, 32bit FX3, 2xRAM, LMS7
 	LMS_DEV_LIMESDR_PCIE,
-	LMS_DEV_QSPARK, //2x LMS
-	LMS_DEV_ULIMESDR,
+	LMS_DEV_LIMESDR_QPCIE, //2x LMS, 14 bit ADC and DAC
+	LMS_DEV_ULIMESDR, //FTDI + MAX10 + LMS
 	LMS_DEV_USTREAM, //with expansion booards (uMyriad)
-	
+	LMS_DEV_LIMESDR_SONY_PA, //stand alone board with Sony PAs, tuners
+	LMS_DEV_LIMESDR_USB_SP,
 	};
 
 enum eEXP_BOARD {
@@ -78,7 +79,7 @@ enum eEXP_BOARD {
 //ADF4002
 #define CMD_ADF4002_WR		0x31 //Writes data to ADF4002 (phase detector/frequency synthesizer) via SPI
 
-#define CMD_SSTREAM_RST				0x40 //FX2 Configuration, resets endpoints (DigiGreen)
+#define CMD_SSTREAM_RST		0x40 //FX2 Configuration, resets endpoints (DigiGreen)
 
 #define CMD_PE636040_WR		0x41 //Writes data to PE636040 tuner
 #define CMD_PE636040_RD		0x42 //Reads data from PE636040 tuner
