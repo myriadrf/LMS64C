@@ -2,9 +2,9 @@
 -- ----------------------------------------------------------------------------	
 -- FILE:	LMS64C_protocol.h
 -- DESCRIPTION:	LMS64C - fixed lenght (64 bytes) lenght control protocol incuding 8 bytes header
--- DATE:	2015.03.03
+-- DATE:	2015.04.13
 -- AUTHOR(s):	Lime Microsystems
--- REVISION: v0r17
+-- REVISION: v0r18
 -- ----------------------------------------------------------------------------	
 
 */
@@ -86,6 +86,9 @@ enum eEXP_BOARD {
 
 #define CMD_BRDCONF_WR		0x5D //write config data to board
 #define CMD_BRDCONF_RD		0x5E //read config data from board
+
+#define CMD_ANALOG_VAL_WR	0x61 //write analog value
+#define CMD_ANALOG_VAL_RD	0x62 //read analog value
 
 //0x6x free?
 //0x7x free?
