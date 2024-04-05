@@ -45,7 +45,8 @@ enum eLMS_DEV {
    LMS_DEV_LIMESDR_X3            = 26, //3xLMS, newer version of PCIe_5GRadio
    LMS_DEV_LIMESDR_XTRX          = 27, //mPCIe board
    LMS_DEV_LIMESDR_MMX8          = 28,
-   LMS_DEV_LIMESDR_MICRO         = 29, //M.2 PCIe board
+   LMS_DEV_LIMESDR_MICRO         = 29, 
+   LMS_DEV_XSDR                  = 30, //M.2 PCIe board
    };
 
 enum eEXP_BOARD {
