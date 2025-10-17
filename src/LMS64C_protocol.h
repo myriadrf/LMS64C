@@ -47,6 +47,8 @@ enum eLMS_DEV {
    LMS_DEV_LIMESDR_MMX8          = 28,
    LMS_DEV_LIMESDR_MICRO         = 29, 
    LMS_DEV_XSDR                  = 30, //M.2 PCIe board
+   LMS_DEV_HIPERSDR_44XX         = 31, 
+   LMS_DEV_SSDR                  = 32,
    };
 
 enum eEXP_BOARD {
@@ -111,8 +113,14 @@ enum eEXP_BOARD {
 #define CMD_BRDCONF_WR        0x5D //write config data to board
 #define CMD_BRDCONF_RD        0x5E //read config data from board
 
+#define CMD_PERIPHSPI_TRNSF   0x60 //write data to peripheral SPI bus
+
 #define CMD_ANALOG_VAL_WR     0x61 //write analog value
 #define CMD_ANALOG_VAL_RD     0x62 //read analog value
+
+#define CMD_BRDCSR_WR         0x71 //write board Configuration Space Register value
+#define CMD_BRDCSR_RD         0x72 //read board Configuration Space Register value
+
 //read reference??? ofset? min? max?
 
 //0x6x free?
